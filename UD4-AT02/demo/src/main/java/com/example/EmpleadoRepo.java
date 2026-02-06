@@ -149,8 +149,14 @@ public class EmpleadoRepo {
 
     public void buscarSalarioMaximo() {
         try (MongoProvider provider = new MongoProvider()) {
-            System.out.println("Conexión Exitosa");
+            List<Document> lista = new ArrayList<>();
+            List<Bson> pipeline = List.of(
+                Aggregates.group("$numEmpleado", Accumulators.max("SalarioMaximo", "$Salario")),
+                Aggregates.sort(Sorts.descending("SalarioMaximo"))
+            );
 
+            provider.empleado().aggregate(pipeline).into(lista);
+            lista.forEach(doc -> System.out.println(doc));
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }

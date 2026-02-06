@@ -16,7 +16,7 @@ public class Main {
         */
 
         // Visualiza los empleados del departamento 10.
-
+/* 
         ArrayList<Integer> deps = new ArrayList<Integer>();
         deps.add(10);
         repo.buscarEmpleado(deps);
@@ -41,7 +41,7 @@ public class Main {
         // Visualiza por departamento el número de empleados, el salario medio y el máximo salario.
 
         repo.buscaTotal();
-
+*/
         // Visualiza el nombre del empleado que tiene el máximo salario.
 
         repo.buscarSalarioMaximo();
